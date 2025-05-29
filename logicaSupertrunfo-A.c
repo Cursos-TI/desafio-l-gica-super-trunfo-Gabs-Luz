@@ -17,10 +17,10 @@ int main(){
     scanf(" %c", &Estado); // espaço entre o %c para evitar problemas no buffer
 
     printf("Digite o código da carta: \n");
-    scanf("%s", &Codecard);
+    scanf("%s", Codecard);
 
     printf("Digite o nome da cidade: \n");
-    scanf(" %[^\n]", &Nomecidade); //Com scanf(" %[^\n]", Nomecidade);, ele armazenará "Rio de Janeiro" corretamente.
+    scanf(" %[^\n]", Nomecidade); //Com scanf(" %[^\n]", Nomecidade);, ele armazenará "Rio de Janeiro" corretamente.
 
     printf("Digite a Área da cidade em km²: \n");
     scanf("%f", &Area);
@@ -41,10 +41,10 @@ int main(){
     scanf(" %c", &Estado2); // espaço entre o %c para evitar problemas no buffer
 
     printf("Digite o código da carta: \n");
-    scanf("%s", &Codecard2);
+    scanf("%s", Codecard2);
 
     printf("Digite o nome da cidade: \n");
-    scanf(" %[^\n]", &Nomecidade2); 
+    scanf(" %[^\n]", Nomecidade2); 
 
     printf("Digite a Área da cidade em km²: \n");
     scanf("%f", &Area2);
@@ -136,20 +136,102 @@ int main(){
         printf("Resultado: Carta 2 (%s) venceu!!\n", Nomecidade2);
     }*/
     
-    //Nível Aventureiro -- Menu interativo
-    int opcao;
-    printf("Menu das comparações\n");
+    //Nível Aventureiro -- Menu interativo, usando funções if - else
+        int opcao;
+    printf("Menu Interativo\n"); 
+    printf("Selecione qual o atributo de comparação: \n");
+    printf("1. População\n");
+    printf("2. Área\n");
+    printf("3. PIB\n");
+    printf("4. Pontos Turístico\n");
+    printf("5. Densidade demográfica\n");
+    printf("Digite o número: ");
     scanf("%d", &opcao);
 
+    //Função Switch para o uso do Menu interativo
     switch (opcao)
     {
     case 1:
-        /* code */
+    printf("Comparação de cartas (Atributo: População)\n");
+    printf("Carta 1 - (%s): %d\n", Nomecidade, Populacao);
+    printf("Carta 2 - (%s): %d\n", Nomecidade2, Populacao2);
+
+    // lógica básica de comparação entre cartas utilizando estruturas de decisão if-else.
+    if (Populacao > Populacao2)
+    {
+        printf("Resultado: Carta 1 (%s) venceu!!\n",Nomecidade);
+    } else if (Populacao2 > Populacao)
+    {
+        printf("Resultado: Carta 2 (%s) venceu!!\n", Nomecidade2);
+    } else
+    {
+        printf("Houve um empate!\n");
+    }
+    
         break;
+    case 2:
+    printf("Comparação de cartas (Atributo: Área)\n");
+    printf("Carta 1 - (%s): %.2f km²\n", Nomecidade, Area);
+    printf("Carta 2 - (%s): %.2f km²\n", Nomecidade2, Area2);
+
+    if (Area > Area2)
+    {
+        printf("Resultado: Carta 1 (%s) venceu!!\n", Nomecidade);
+    } else if (Area2 > Area)
+    {
+        printf("Resultado: Carta 2 (%s) venceu!!\n", Nomecidade2);
+    } else
+    {
+        printf("Houve um empate!\n"); 
+    }
+        break;
+    case 3:
+    printf("Comparação de cartas (Atributo: PIB)\n");
+    printf("Carta 1 - (%s): %.2f Bilhões de reais\n", Nomecidade, PIB);
+    printf("Carta 2 - (%s): %.2f Bilhões de reais\n", Nomecidade2, PIB2);
+    if (PIB > PIB2)
+    {
+        printf("Resultado: Carta 1 (%s) venceu!!\n", Nomecidade);
+    }   
+    else if (PIB2 > PIB)
+    {
+        printf("Resultadp: Carta 2 (%s) venceu!!\n", Nomecidade2);
+    } else {
+        printf("Houve um empate!\n");
+    }
+        break;
+    case 4:
+    printf("Comparação de cartas (Atributo: Pontos turísticos)\n");
+    printf("Carta 1 - (%s): %d\n", Nomecidade, Pontos_Turisticos);
+    printf("Carta 2 - (%s): %d\n", Nomecidade2, Pontos_Turist2);
+    if (Pontos_Turisticos > Pontos_Turist2)
+    {
+        printf("Resultado: Carta 1 (%s) venceu!!\n", Nomecidade);
+    } else if (Pontos_Turist2 > Pontos_Turisticos)
+    {
+        printf("Resultado: Carta 2 (%s) venceu!!\n", Nomecidade2);
+    } else {
+        printf("Houve um empate!");
+    }
+        break;
+    case 5:
+    printf("Comparação de cartas (Atributo: Densidade demográfica)\n");
+    printf("Carta 1 - (%s): %.2f",Nomecidade, densidade_popu);
+    printf("Carta 2 - (%s): %.2f",Nomecidade2, densidade_po2);
+    if (densidade_popu < densidade_po2)
+    {
+        printf("Resultado: Carta 1 (%s) venceu!!\n", Nomecidade);
+    } else if (densidade_po2 < densidade_popu)
+    {
+        printf("Resultado: Carta 2 (%s) venceu!!\n", Nomecidade2);
+    } else {
+        printf("Houve um empate!");
+    }
+        break;    
     
     default:
-        printf("Tente novamente!\n");
+        printf("Tente novamente uma das opções!!");
         break;
     }
     return 0;
-}
+}   
